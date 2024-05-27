@@ -1,6 +1,6 @@
 import RestroCard from "./RestroCard";
 import {resData} from "../utils/mockData";
-
+const a = "aaa";
 const Body = () => {
     
     console.log(resData);
