@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat";
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+#root{
+    width: 100%;
+    height: 100%;
+    background-color: aquamarine;
+}
+
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 10vh;
+    background-color: yellowgreen;
+    padding: 0 10vw;
+}
+
+.nav img{
+    width: 4vw;
+}
+
+.nav .links{
+    display: flex;
+    gap: 2vw;
+    cursor: pointer;
+}
+
+.body{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    /* height: 80vh; */
+    background-color: violet;
+    padding: 0 10vw;
+    padding-top: 2vh;
+}
+
+.res-card{
+    border-radius: 15px;
+    padding: .5vw 1vh;
+    width: 280px;
+    height: 380px;
+    background-color: white;
+    margin-bottom: 2vh;
+    cursor: pointer;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
+}
+
+.res-card:hover{
+    scale: .98;
+}
+
+.res-card .bg{
+    display: flex;
+    align-items: end;
+    width: 100%;
+    height: 50%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    color: white;
+    padding-left: 1vw;
+    padding-bottom: .5vh;
+}
+
+.res-card .bg h1{
+    font-size: 1vw;
+    font-weight: 700;
+}
+
+.res-name{
+    margin-top: 10%;
+}
+
+.cuisine{
+    display: flex;
+    width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
