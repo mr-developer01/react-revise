@@ -1,12 +1,33 @@
 import RestroCard from "./RestroCard";
-import {resData} from "../utils/mockData";
-const a = "aaa";
+import React, { useState } from "react";
+import { resData } from "../utils/mockData";
+
 const Body = () => {
-    
-    console.log(resData);
-    return (
+  // useState hook
+  const [mainResData, setMainResData] = useState(resData);
+  const [toggle, setToggle] = useState(true);
+
+  // filter functionality
+  const topRatedRestro = () => {
+    if (toggle) {
+      const filterData = mainResData.filter((data) => {
+        return data.info.avgRating > 4.2 ? data : null;
+      });
+      setMainResData(filterData);
+    } else {
+      setMainResData(resData);
+    }
+    setToggle(!toggle);
+  };
+
+
+  return (
+    <div className="body-p">
+      <button onClick={topRatedRestro}>
+        {toggle ? "Top Rated Resto" : "Show All Restro"}
+      </button>
       <div className="body">
-        {resData.map((data) => (
+        {mainResData.map((data) => (
           <RestroCard
             key={data.info.id}
             bgImg={data.info.cloudinaryImageId}
@@ -19,7 +40,8 @@ const Body = () => {
           />
         ))}
       </div>
-    );
-  };
+    </div>
+  );
+};
 
-  export default Body;
+export default Body;

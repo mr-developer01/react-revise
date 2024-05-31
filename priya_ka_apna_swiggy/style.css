@@ -17,35 +17,28 @@ body {
     background-color: aquamarine;
 }
 
-.nav{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    height: 10vh;
-    background-color: yellowgreen;
-    padding: 0 10vw;
-}
-
-.nav img{
-    width: 4vw;
-}
-
-.nav .links{
-    display: flex;
-    gap: 2vw;
-    cursor: pointer;
-}
-
 .body{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     width: 100%;
-    /* height: 80vh; */
     background-color: violet;
     padding: 0 10vw;
     padding-top: 2vh;
+}
+
+.body-p{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* padding: 0 5vw; */
+    padding-top: 3vh;
+}
+
+.body-p button{
+    margin-bottom: 2vh;
+    padding: 1vh .5vw;
+    cursor: pointer;
 }
 
 .res-card{
@@ -92,3 +85,7 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+/* .footer{
+    color: red;
+} */
