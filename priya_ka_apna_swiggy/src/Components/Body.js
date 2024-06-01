@@ -1,6 +1,6 @@
 import RestroCard from "./RestroCard";
 import React, { useState } from "react";
-import { resData } from "../utils/mockData";
+import { resData, topRatedRestro } from "../utils/mockData";
 
 const Body = () => {
   // useState hook
@@ -8,22 +8,24 @@ const Body = () => {
   const [toggle, setToggle] = useState(true);
 
   // filter functionality
-  const topRatedRestro = () => {
-    if (toggle) {
-      const filterData = mainResData.filter((data) => {
-        return data.info.avgRating > 4.2 ? data : null;
-      });
-      setMainResData(filterData);
-    } else {
-      setMainResData(resData);
-    }
-    setToggle(!toggle);
-  };
+  // const topRatedRestro = () => {
+  //   if (toggle) {
+  //     const filterData = mainResData.filter((data) => {
+  //       return data.info.avgRating > 4.2 ? data : null;
+  //     });
+  //     setMainResData(filterData);
+  //   } else {
+  //     setMainResData(resData);
+  //   }
+  //   setToggle(!toggle);
+  // };
 
 
   return (
     <div className="body-p">
-      <button onClick={topRatedRestro}>
+      <button onClick={() => {
+        topRatedRestro(toggle, mainResData, setMainResData, setToggle)
+      }}>
         {toggle ? "Top Rated Resto" : "Show All Restro"}
       </button>
       <div className="body">

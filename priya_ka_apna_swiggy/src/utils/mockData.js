@@ -1319,6 +1319,18 @@ export let resData = [
     },
   ];
 
+
+  export const topRatedRestro = (toggle, mainResData, setMainResData, setToggle) => {
+    if (toggle) {
+      const filterData = mainResData.filter((data) => {
+        return data.info.avgRating > 4.2 ? data : null;
+      });
+      setMainResData(filterData);
+    } else {
+      setMainResData(resData);
+    }
+    setToggle(!toggle);
+  };
 //   export default resData;
 
 // JS me two types import/export hote hai :---
