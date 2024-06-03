@@ -1,0 +1,10 @@
+.shimmer{
+    width: 300px;
+}
+
+.abc{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2vw;
+}
