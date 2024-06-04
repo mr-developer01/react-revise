@@ -13,9 +13,13 @@
 }
 
 .links{
+    width: 60vw;
     display: flex;
+    justify-content: end;
     gap: 2vw;
     cursor: pointer;
+    /* background-color: red; */
+    
 }
 /* 
 .footer{

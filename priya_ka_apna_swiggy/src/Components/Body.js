@@ -8,39 +8,60 @@ const Body = () => {
   const [mainResData, setMainResData] = useState(null);
   const [toggle, setToggle] = useState(true);
   const [dummyCards, SetDummyCards] = useState([]);
-  const dArr = [1,2,3,4,5,6,7,8,9,10]
-
-
+  const dArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  
+  // console.log(dArr);
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [toggle]);
 
-  const fetchData = async() => {
-    const rawData = await fetch("https://www.swiggy.com/mapi/homepage/getCards?lat=12.9122238&lng=77.5923219");
+  const fetchData = async () => {
+    const rawData = await fetch(
+      "https://www.swiggy.com/mapi/homepage/getCards?lat=12.9122238&lng=77.5923219"
+    );
     const readableData = await rawData.json();
-    // console.log(readableData?.data?.success?.cards[1]?.gridWidget?.gridElements?.infoWithStyle?.restaurants);
-    const allCards = readableData?.data?.success?.cards[1]?.gridWidget?.gridElements?.infoWithStyle?.restaurants;
-    SetDummyCards(allCards)
-    setMainResData(allCards)
-  }
+    console.log(
+      readableData?.data?.success?.cards[1]?.gridWidget?.gridElements
+        ?.infoWithStyle?.restaurants
+    );
+    const allCards =
+      readableData?.data?.success?.cards[1]?.gridWidget?.gridElements
+        ?.infoWithStyle?.restaurants;
+    SetDummyCards(allCards);
+    setMainResData(allCards);
+  };
 
   // Conditional Rendering
-  if(mainResData === null){
+  if (mainResData === null) {
     return (
       <div className="abc">
-        {dArr.map(data => <Shimmer />)}
+        {dArr.map((data) => (
+          <Shimmer />
+        ))}
       </div>
-    )
+    );
   }
   return (
     <div className="body-p">
-      <button
-        onClick={() => {
-          topRatedRestro(toggle, mainResData, dummyCards, setMainResData, setToggle);
-        }}
-      >
-        {toggle ? "Top Rated Resto" : "Show All Restro"}
-      </button>
+      <div style={{display: "flex", gap: "2vw"}}>
+        <div>
+          <input type="text" placeholder="search Restro" />
+          <button>Search</button>
+        </div>
+        <button
+          onClick={() => {
+            topRatedRestro(
+              toggle,
+              mainResData,
+              dummyCards,
+              setMainResData,
+              setToggle
+            );
+          }}
+        >
+          {toggle ? "Top Rated Resto" : "Show All Restro"}
+        </button>
+      </div>
       <div className="body">
         {mainResData.map((data) => (
           <RestroCard
