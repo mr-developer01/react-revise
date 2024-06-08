@@ -7,7 +7,7 @@ import Footer from "./Components/Footer/Footer";
 const App = () => {
   return (
     <>
-      <Nav />
+      <Nav name="Rahul" age={24}/>
       <Body />
       <Footer />
     </>

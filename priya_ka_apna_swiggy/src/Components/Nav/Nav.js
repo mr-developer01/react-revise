@@ -2,7 +2,8 @@ import { LOGO_URL } from "../../utils/constant";
 import * as rahul from "./Nav.module.css";
 import {useState} from "react"
 // console.log(rahul);
-const Nav = () => {
+const Nav = ({name, age}) => {
+  console.log(name,age);
   const [toggle, setToggle] = useState(true)
   const kuchhV = () => {
     setToggle(!toggle);
